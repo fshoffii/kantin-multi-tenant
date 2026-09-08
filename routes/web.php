@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\Customer\ResolveTableQrController;
 use App\Http\Controllers\Webhooks\QrisWebhookController;
 use Illuminate\Support\Facades\Route;
