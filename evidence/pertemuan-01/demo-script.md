@@ -4,7 +4,7 @@
 - MariaDB `kantin` + `kantin_test`, Redis 6379 aktif. `.env` terisi (lihat README).
 
 ## Langkah demo
-1. `composer run dev` (HTTP + queue + Vite). Buka ` 
+1. `composer run dev` (HTTP + queue + Vite). Buka ` Buka `http://localhost:8000`.
 2. Halaman **login** tampil: judul "Log in to your account", opsi *Sign in with a passkey*,
    form Email/Password, *Remember me*, tombol **Log in**, tautan **Sign up** (starter kit Livewire + Fortify, tema Flux gelap).
    - Diverifikasi 2026-08-16 via dev server pada port 8001; `GET /login` → HTTP 200; render benar.
