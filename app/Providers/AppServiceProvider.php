@@ -9,8 +9,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Livewire\Livewire;
+use Tests\Fixtures\Modules\Probe\Livewire\ProbeCounter;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,6 +34,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        View::addNamespace('probe', base_path('tests/Fixtures/Modules/Probe/resources/views'));
+        Livewire::component('probe::counter', ProbeCounter::class);
+
         $this->configureDefaults();
         $this->configureRateLimiters();
     }

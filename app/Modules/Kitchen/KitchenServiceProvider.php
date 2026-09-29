@@ -2,6 +2,7 @@
 
 namespace App\Modules\Kitchen;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -21,6 +22,6 @@ final class KitchenServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //
+        View::addNamespace('kitchen', app_path('Modules/Kitchen/resources/views'));
     }
 }

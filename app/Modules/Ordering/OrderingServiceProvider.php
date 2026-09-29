@@ -2,6 +2,7 @@
 
 namespace App\Modules\Ordering;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -21,6 +22,6 @@ final class OrderingServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //
+        View::addNamespace('ordering', app_path('Modules/Ordering/resources/views'));
     }
 }

@@ -3,6 +3,14 @@
 use App\Http\Middleware\EnsureUserHasRole;
 use App\Http\Middleware\SecurityHeaders;
 use App\Http\Middleware\SetTenantContext;
+use App\Modules\Admin\AdminServiceProvider;
+use App\Modules\Catalog\CatalogServiceProvider;
+use App\Modules\Kitchen\KitchenServiceProvider;
+use App\Modules\Ordering\OrderingServiceProvider;
+use App\Modules\Payments\PaymentsServiceProvider;
+use App\Modules\Reporting\ReportingServiceProvider;
+use App\Providers\AppServiceProvider;
+use App\Providers\FortifyServiceProvider;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -54,6 +62,16 @@ return Application::configure(basePath: dirname(__DIR__))
         // Webhook provider tak mengirim token CSRF; keaslian dijamin signature HMAC atas raw body.
         $middleware->validateCsrfTokens(except: ['webhooks/*']);
     })
+    ->withProviders([
+        AppServiceProvider::class,
+        FortifyServiceProvider::class,
+        AdminServiceProvider::class,
+        CatalogServiceProvider::class,
+        OrderingServiceProvider::class,
+        PaymentsServiceProvider::class,
+        KitchenServiceProvider::class,
+        ReportingServiceProvider::class,
+    ])
     ->withExceptions(function (Exceptions $exceptions): void {
         $exceptions->shouldRenderJsonWhen(
             fn (Request $request) => $request->is('api/*') || $request->expectsJson(),

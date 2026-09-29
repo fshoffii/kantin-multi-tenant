@@ -4,6 +4,7 @@ namespace App\Modules\Payments;
 
 use App\Modules\Payments\Contracts\PaymentGateway;
 use App\Modules\Payments\Gateways\FakeQrisGateway;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -25,6 +26,6 @@ final class PaymentsServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //
+        View::addNamespace('payments', app_path('Modules/Payments/resources/views'));
     }
 }

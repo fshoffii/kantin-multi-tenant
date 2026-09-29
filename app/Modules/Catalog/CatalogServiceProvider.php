@@ -2,6 +2,7 @@
 
 namespace App\Modules\Catalog;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -21,6 +22,6 @@ final class CatalogServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //
+        View::addNamespace('catalog', app_path('Modules/Catalog/resources/views'));
     }
 }

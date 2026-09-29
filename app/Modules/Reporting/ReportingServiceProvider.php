@@ -2,6 +2,7 @@
 
 namespace App\Modules\Reporting;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -21,6 +22,6 @@ final class ReportingServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //
+        View::addNamespace('reporting', app_path('Modules/Reporting/resources/views'));
     }
 }

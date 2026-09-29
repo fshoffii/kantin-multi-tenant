@@ -2,6 +2,7 @@
 
 namespace App\Modules\Admin;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -21,6 +22,6 @@ final class AdminServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
-        //
+        View::addNamespace('admin', app_path('Modules/Admin/resources/views'));
     }
 }
