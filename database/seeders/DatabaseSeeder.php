@@ -23,8 +23,9 @@ class DatabaseSeeder extends Seeder
 
         // Akun demo per konteks (Modul 2). Role diformalkan pada Modul 4–5.
         $demo = [
-            ['name' => 'Admin Kantin', 'email' => 'admin@kantin.test', 'role' => 'admin'],
-            ['name' => 'Operator Tenant', 'email' => 'tenant@kantin.test', 'role' => 'tenant'],
+            ['name' => 'Admin Kantin', 'email' => 'admin@kantin.test', 'role' => 'admin', 'password' => 'test123'],
+            ['name' => 'Operator Kantin', 'email' => 'operator@kantin.test', 'role' => 'operator', 'password' => 'test123'],
+            ['name' => 'Operator Tenant', 'email' => 'tenant@kantin.test', 'role' => 'tenant', 'password' => 'test123'],
         ];
 
         foreach ($demo as $row) {
@@ -35,7 +36,7 @@ class DatabaseSeeder extends Seeder
                     'name' => $row['name'],
                     'role' => $row['role'],
                     'status' => 'active',
-                    'password' => Hash::make('password'),
+                    'password' => Hash::make($row['password']),
                     'email_verified_at' => now(),
                 ])
                 ->save();
