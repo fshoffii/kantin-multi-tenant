@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
-use Tests\Fixtures\Modules\Probe\Livewire\ProbeCounter;
 
 final class ProbeServiceProvider extends ServiceProvider
 {
